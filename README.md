@@ -36,3 +36,5 @@ Examples are like:
 - Easily get overfitting
 
 ![demo.png](img/demo.png)
+
+The default command got an MAE(Mean absolute error) as 0.9272843719426256 and MRE(Mean relative error) as 0.00480401596775846.

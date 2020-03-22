@@ -47,6 +47,13 @@ def plot(X_original, t_original, t_predicted, train_limit):
     plt.legend()
     plt.show()
 
+def performance(t_original, t_predicted):
+    t_original = t_original[:len(t_predicted)]
+    MAE = np.mean(np.abs(t_predicted - t_original))
+    MRE = np.mean(np.abs(t_predicted - t_original) / np.abs(t_original))
+    print(f"MAE:{MAE}\nMRE:{MRE}")
+    return MAE, MRE
+
 
 if __name__ == '__main__':
     args = get_config()
@@ -76,4 +83,5 @@ if __name__ == '__main__':
     model = BayesianModel()
     model.fit(phi, t, verbose=True)
     t_predicted, t_var = model.predict(phi_test)
+    performance(t_original, t_predicted)
     plot(X_original, t_original, t_predicted, train_limit)
